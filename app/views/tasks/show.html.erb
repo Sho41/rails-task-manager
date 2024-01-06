@@ -1,0 +1,15 @@
+<h1><%= @task.title %></h1>
+<h2><%= @task.details %></h2>
+
+<%= form_with model: @task do |f| %>
+  <%= f.check_box :completed %>
+  <% if @task.completed %>
+    <%= f.label :completed, 'This task is completed' %>
+  <% else %>
+    <%= f.label :completed, 'This task is not completed yet' %>
+  <% end %>
+<% end %>
+
+<%= link_to 'Edit this task', edit_task_path %>
+
+<%= link_to 'Back to list', tasks_path %>
